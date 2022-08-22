@@ -111,6 +111,34 @@ public class RadioTest {
     }
 
     @Test
+    public void shouldNotSetVolumeNegativeNumber() {
+        Radio radioStation = new Radio();
+
+        radioStation.setCurrentVolume(5);
+        radioStation.setCurrentVolume(-1);
+
+        int expected = 5;
+        int actual = radioStation.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void shouldNotSetVolumeOverNumber() {
+        Radio radioStation = new Radio();
+
+        radioStation.setCurrentVolume(5);
+        radioStation.setCurrentVolume(15);
+
+        int expected = 5;
+        int actual = radioStation.getCurrentVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
     public void nextVolumeNormal() {
         Radio radioStation = new Radio();
 

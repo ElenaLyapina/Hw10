@@ -35,6 +35,10 @@ public class Radio {
         currentRadioStation = newCurrentRadioStation;
     }
 
+    public int getCurrentVolume() {
+        return currentVolume;
+    }
+
     public int increaseVolume() {
         if (currentVolume < 10){
             currentVolume = currentVolume + 1;
