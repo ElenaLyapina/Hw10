@@ -1,13 +1,25 @@
 public class Radio {
     private int currentRadioStation;
     private int currentVolume;
+    private int maxRadioStation = 9;
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
     }
 
+    public int getMaxRadioStation() { return maxRadioStation; }
+
+
+    public Radio(int amountStation){
+        this.maxRadioStation = amountStation - 1;
+    }
+
+    public Radio(){
+        this.maxRadioStation = maxRadioStation;
+    }
+
     public int nextRadioStation() {
-        if (currentRadioStation < 9){
+        if (currentRadioStation < maxRadioStation){
             currentRadioStation = currentRadioStation + 1;
         }
         else {
@@ -20,7 +32,7 @@ public class Radio {
         if (currentRadioStation > 0) {
             currentRadioStation = currentRadioStation - 1;
         } else {
-            currentRadioStation = 9;
+            currentRadioStation = maxRadioStation;
         }
         return currentRadioStation;
     }
@@ -29,7 +41,7 @@ public class Radio {
         if (newCurrentRadioStation < 0) {
             return;
         }
-        if (newCurrentRadioStation > 9) {
+        if (newCurrentRadioStation > maxRadioStation) {
             return;
         }
         currentRadioStation = newCurrentRadioStation;
@@ -40,11 +52,11 @@ public class Radio {
     }
 
     public int increaseVolume() {
-        if (currentVolume < 10){
+        if (currentVolume < 100){
             currentVolume = currentVolume + 1;
         }
         else {
-            currentVolume = 10;
+            currentVolume = 100;
         }
         return currentVolume;
     }
@@ -62,7 +74,7 @@ public class Radio {
         if (newCurrentVolume < 0) {
             return;
         }
-        if (newCurrentVolume > 10) {
+        if (newCurrentVolume > 100) {
             return;
         }
         currentVolume = newCurrentVolume;
